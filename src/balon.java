@@ -1,15 +1,16 @@
 import java.io.*;
 import java.util.*;
-import java.util.Scanner;
 
 public class balon {
 
 	public static void main(String[] args) {
 		
+
 		int secim;
 		Scanner in = new Scanner(System.in); 
 		System.out.println("Balon problemi icin gerekli n degerini giriniz:");
 		int n= in.nextInt();
+
 		
 		do{
 			secim=menu();
@@ -39,6 +40,7 @@ public class balon {
 	public static int menu(){
 		int secim;
 		
+
 		System.out.println("1) Tum katlarin listesi");
 		System.out.println("2) Otopark problemi");
 		System.out.println("3) 3 saniyede n adet ortalama otopark probleminin cozumu");
@@ -47,6 +49,7 @@ public class balon {
 		System.out.println("Seciminizi giriniz:");
 		Scanner in = new Scanner(System.in); 
 		secim=in.nextInt();
+
 		
 		return secim;
 	}
@@ -159,8 +162,7 @@ public static ArrayList<Object> ekleme(){
 	//kat9.display();
 
 	return katlar;
-	
-	
+
 }
 
 
@@ -203,6 +205,24 @@ public static void katlari_yazdir(ArrayList<Object> yazdirilan){
 	System.out.println();
 	System.out.println();
 }
+
+public static void islem_zaman(){
+	
+	long start,stop, islemZamani;
+	start = System.currentTimeMillis();
+	// TODO ekleme metodunu çağır
+	// TODO çıkarma metodunu çağır
+	stop = System.currentTimeMillis();
+	
+	islemZamani = stop - start;
+	System.out.println(islemZamani);
+	
+	if(islemZamani == 0)
+		System.out.println("Islem 1 ms'den kısa sürede tamamlandı. " +
+				"Kac islem yapılabilecegi hesaplanamıyor.");
+	else
+		System.out.println("3 sn'de yapilabilecek islem sayisi :" + 3000/islemZamani);
+	}
 }
 
 
