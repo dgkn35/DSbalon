@@ -1,6 +1,7 @@
 
 public class List {
 	public araba ilk;
+	public araba temp;
 	
 	public List()
 	{
@@ -34,5 +35,26 @@ public class List {
 		}
 	}
 	
+	public void dolaþ(int n)
+	{
+		int count=1;
+		while(ilk.next!=ilk && count!=n)
+		{
+			count++;
+			temp=temp.next;
+		}
+	}
+	
+	public void çýkart()
+	{
+		if(!bosmu())
+		{
+			if(temp.next!=ilk)
+				ilk=ilk.next;
+			
+			temp.yazdir();
+			temp.next=temp.next.next;
+		}
+	}
 	
 }
