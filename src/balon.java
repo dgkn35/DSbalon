@@ -1,6 +1,5 @@
 import java.io.*;
 import java.util.*;
-import java.util.Scanner;
 
 public class balon {
 
@@ -41,12 +40,14 @@ public class balon {
 		katlar.add(kat8);
 		katlar.add(kat9);
 		
+		islem_zaman();
+		
 		int secim=menu();
 		
 		//Katlar yazdırılıyor.
 		System.out.println("KAT 1");
         queue_yazdir(kat1);
-		System.out.println();
+        System.out.println();
 		System.out.println("KAT 2");
 		stack_yazdir(kat2);
 		System.out.println();
@@ -81,7 +82,7 @@ public class balon {
 		int secim;
 		
 		do{
-			System.out.println("1) Tum katlar�n listesi");
+			System.out.println("1) Tum katlar�n listesi");
 			System.out.println("2) Otopark problemi");
 			System.out.println("3) 3 saniyede n adet ortalama otopark probleminin cozumu");
 			System.out.println("4) Cikis:");
@@ -129,5 +130,23 @@ public static void stack_yazdir(Stack<araba> yazilan){
 		yaz.yazdir();
 		}
 		
+	}
+
+public static void islem_zaman(){
+	
+	long start,stop, islemZamani;
+	start = System.currentTimeMillis();
+	// TODO ekleme metodunu çağır
+	// TODO çıkarma metodunu çağır
+	stop = System.currentTimeMillis();
+	
+	islemZamani = stop - start;
+	System.out.println(islemZamani);
+	
+	if(islemZamani == 0)
+		System.out.println("Islem 1 ms'den kısa sürede tamamlandı. " +
+				"Kac islem yapılabilecegi hesaplanamıyor.");
+	else
+		System.out.println("3 sn'de yapilabilecek islem sayisi :" + 3000/islemZamani);
 	}
 }
