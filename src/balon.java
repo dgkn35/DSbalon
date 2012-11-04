@@ -1,4 +1,3 @@
-import java.util.Stack;
 import java.io.*;
 import java.util.*;
 
@@ -7,34 +6,78 @@ public class balon {
 
 	public static void main(String[] args) {
 		
-		List linked1 = new List();
-		List linked2 = new List();
-		List linked3 = new List();
-		Stack<araba> stack1 = new Stack<araba>();
-		Stack<araba> stack2 = new Stack<araba>();
-		Stack<araba> stack3 = new Stack<araba>();
-		Queue<araba> queue = new LinkedList<araba>();
-		Queue<araba> queue2 = new LinkedList<araba>();
-		Queue<araba> queue3= new LinkedList<araba>();
+		List linked =  new List();
 		
-		String[] renk = {"Kýrmýzý","Yesil","Mavi","Sarý","Mor","Turuncu","Pembe","Gri","Siyah","Beyaz"};
+		String[] renk = {"Kirmizi","Yesil","Mavi","Sari","Mor","Turuncu","Pembe","Gri","Siyah","Beyaz"};
+		
+		linked.ekle(renk);
+		linked.display();
+		System.out.println();
 		
 		
-		linked1.ekle(renk);
+		Stack<araba> kat2=new Stack<araba>();
+		Stack<araba> kat5=new Stack<araba>();
+		Stack<araba> kat8=new Stack<araba>();
+		add_stack(renk,kat2);
+		stack_yazdir(kat2);
+		System.out.println();
+		add_stack(renk,kat5);
+		stack_yazdir(kat2);
+		System.out.println();
+		add_stack(renk,kat8);
+		stack_yazdir(kat2);
+		System.out.println();
 		
-		stackEkle(stack1,renk);
-		stackEkle(stack2,renk);
-		stackEkle(stack3,renk);
-		linked1.display();
+		Queue<araba> kat1=new LinkedList<araba>();
+		Queue<araba> kat4=new LinkedList<araba>();
+		Queue<araba> kat7=new LinkedList<araba>();
+		add_queue(renk,kat1);
+		queue_yazdir(kat1);
+		System.out.println();
+		add_queue(renk,kat7);
+		queue_yazdir(kat1);
+		System.out.println();
+		queue_yazdir(kat4);
+		System.out.println();
+		queue_yazdir(kat7);
+		
+		
 		
 	}
 	
-	static void stackEkle(Stack<araba> stack, String[] renk)
-	{
-		for(int i=0;i<10;i++)
-		{
-			araba a = new araba(renk[i]);
-			stack.push(a);
+	public static void add_queue(String[] r,Queue<araba> kat){
+		
+		for(int i=0;i<10;i++){
+			araba a1=new araba(r[i]);
+			kat.add(a1);
+			
 		}
-	}	
+	}
+public static void add_stack(String[] r,Stack<araba> eklenen){
+		
+		for(int i=0;i<10;i++){
+			araba a1=new araba(r[i]);
+			eklenen.add(a1);
+			
+		}
+	}
+	
+	public static void queue_yazdir(Queue<araba> yazilan){
+		
+		for(Iterator<araba> itr=yazilan.iterator();itr.hasNext();){
+		
+		araba yaz=itr.next();
+		yaz.yazdir();
+		}
+		
+	}
+public static void stack_yazdir(Stack<araba> yazilan){
+		
+		for(Iterator<araba> itr=yazilan.iterator();itr.hasNext();){
+		
+		araba yaz=itr.next();
+		yaz.yazdir();
+		}
+		
+	}
 }
