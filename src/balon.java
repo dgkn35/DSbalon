@@ -6,29 +6,49 @@ public class balon {
 
 	public static void main(String[] args) {
 		
-		ArrayList<Object> otopark = new ArrayList<Object>();
-		otopark=ekleme();
-		katlari_yazdir(otopark);
+		int secim;
+		Scanner in = new Scanner(System.in); 
+		System.out.println("Balon problemi icin gerekli n degerini giriniz:");
+		int n= in.nextInt();
 		
-		
+		do{
+			secim=menu();
+			switch (secim) {
+				case 1:
+				{
+					ArrayList<Object> otopark = new ArrayList<Object>();
+					otopark=ekleme();
+					katlari_yazdir(otopark);
+					break;
+				}
+				
+				case 2:
+				{
+					
+				}
+				
+				case 3:
+				{
+					
+				}
+			}
+			
+		}while(secim!=4);
 	}
 	
 	public static int menu(){
 		int secim;
 		
-		do{
-			System.out.println("1) Tum katlarýn listesi");
-			System.out.println("2) Otopark problemi");
-			System.out.println("3) 3 saniyede n adet ortalama otopark probleminin cozumu");
-			System.out.println("4) Cikis:");
-			System.out.println();
-			System.out.println("Seciminizi giriniz:");
-			Scanner in = new Scanner(System.in); 
-			secim=in.nextInt();
-		}while(secim!=4);
+		System.out.println("1) Tum katlarýn listesi");
+		System.out.println("2) Otopark problemi");
+		System.out.println("3) 3 saniyede n adet ortalama otopark probleminin cozumu");
+		System.out.println("4) Cikis:");
+		System.out.println();
+		System.out.println("Seciminizi giriniz:");
+		Scanner in = new Scanner(System.in); 
+		secim=in.nextInt();
 		
 		return secim;
-
 	}
 	
 	public static void add_queue(String[] r,Queue<araba> kat){
