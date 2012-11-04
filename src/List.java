@@ -1,3 +1,5 @@
+import java.sql.Ref;
+
 
 public class List {
 	public araba ilk;
@@ -13,15 +15,24 @@ public class List {
 		return ilk==null;
 	}
 	
-	public void ekle(String renk)
+	public void ekle(String[] renk)
 	{
-		araba node=new araba(renk);
-		node.next=this.ilk;
-		this.ilk=node;
-		if(node.next==null)
+		int i;
+		
+		for(i=0; i<10;i++)
 		{
-			node.next=ilk;
+			araba node=new araba(renk[i]);
+			node.next=this.ilk;
+			this.ilk=node;
+			
 		}
+		araba current = ilk ;
+		
+		while(current.sonrakiAl() != null)
+		{
+			current=current.sonrakiAl();
+		}
+		current.next = ilk;
 		
 	}
 	

@@ -7,11 +7,9 @@ public class balon {
 		
 		String[] renk = {"Kırmızı","Yeşil","Mavi","Sarı","Mor","Turuncu","Pembe","Gri","Siyah","Beyaz"};
 		
-		int i;
-		for(i=0; i<10;i++)
-		{
-			linked.ekle(renk[i]);
-		}
+		
+		linked.ekle(renk);
+		
 		
 		linked.display();
 		
