@@ -1,13 +1,13 @@
-import java.sql.Ref;
 
 
 public class List {
 	public araba ilk;
 	public araba temp;
 	
-	public List()
+	public List(String[] renk)
 	{
 		ilk=null;
+		this.ekle(renk);
 	}
 	
 	public Boolean bosmu()

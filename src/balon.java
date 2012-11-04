@@ -6,34 +6,42 @@ public class balon {
 
 	public static void main(String[] args) {
 		
-		List kat3 =  new List();
-		List kat6 =  new List();
-		List kat9 =  new List();
-		
 		String[] renk = {"Kirmizi","Yesil","Mavi","Sari","Mor","Turuncu","Pembe","Gri","Siyah","Beyaz"};
 		
-		kat3.ekle(renk);
-		kat6.ekle(renk);
-		kat9.ekle(renk);
+		System.out.println();
 		
-		Stack<araba> kat2=new Stack<araba>();
-		Stack<araba> kat5=new Stack<araba>();
-		Stack<araba> kat8=new Stack<araba>();
+		ArrayList<Object> katlar = new ArrayList<Object>();//kat container'i olustur
 		
-		add_stack(renk,kat2);
-		add_stack(renk,kat5);
-        add_stack(renk,kat8);
-		
-	
-		
-		Queue<araba> kat1=new LinkedList<araba>();
+		//Katları olustur.
+		Queue<araba> kat1=new LinkedList<araba>();//Queue
 		Queue<araba> kat4=new LinkedList<araba>();
 		Queue<araba> kat7=new LinkedList<araba>();
+		add_queue(renk, kat1);
+		add_queue(renk, kat4);
+		add_queue(renk, kat7);
+		Stack<araba> kat2=new Stack<araba>();//Stack
+		Stack<araba> kat5=new Stack<araba>();
+		Stack<araba> kat8=new Stack<araba>();
+		add_stack(renk, kat2);
+		add_stack(renk, kat5);
+		add_stack(renk, kat8);
+		List kat3 =  new List(renk);//LinkedList
+		List kat6 =  new List(renk);
+		List kat9 =  new List(renk);
 		
-		add_queue(renk,kat1);
-		add_queue(renk,kat4);
-		add_queue(renk,kat7);
 		
+		//Katlar container'a ekleniyor.
+		katlar.add(kat1);
+		katlar.add(kat2);
+		katlar.add(kat3);
+		katlar.add(kat4);
+		katlar.add(kat5);
+		katlar.add(kat6);
+		katlar.add(kat7);
+		katlar.add(kat8);
+		katlar.add(kat9);
+		
+		//Katlar yazdırılıyor.
 		System.out.println("KAT 1");
         queue_yazdir(kat1);
 		System.out.println();
@@ -64,6 +72,7 @@ public class balon {
 		System.out.println();
 		System.out.println("KAT 9");
 		kat9.display();
+
 	}
 	
 	public static void add_queue(String[] r,Queue<araba> kat){
