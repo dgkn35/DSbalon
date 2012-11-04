@@ -4,6 +4,8 @@ public class List {
 	public araba ilk;
 	public araba temp;
 	
+	
+	
 	public List(String[] renk)
 	{
 		ilk=null;
