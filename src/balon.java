@@ -39,7 +39,7 @@ public class balon {
 	public static int menu(){
 		int secim;
 		
-		System.out.println("1) Tum katlarýn listesi");
+		System.out.println("1) Tum katlarin listesi");
 		System.out.println("2) Otopark problemi");
 		System.out.println("3) 3 saniyede n adet ortalama otopark probleminin cozumu");
 		System.out.println("4) Cikis:");
@@ -164,42 +164,42 @@ public static ArrayList<Object> ekleme(){
 }
 
 
-public static void katlari_yazdir(ArrayList<Object> yazdýrýlan){
+public static void katlari_yazdir(ArrayList<Object> yazdirilan){
 	
 	
     System.out.println("KAT 1");
-	queue_yazdir((Queue<araba>)yazdýrýlan.get(0));
+	queue_yazdir((Queue<araba>)yazdirilan.get(0));
 	System.out.println();
 	System.out.println("KAT 2");
-	stack_yazdir((Stack<araba>)yazdýrýlan.get(1));
+	stack_yazdir((Stack<araba>)yazdirilan.get(1));
 	System.out.println();
 	System.out.println("KAT 3");
-	List yazýcý=(List)yazdýrýlan.get(2);
-	yazýcý.display();
+	List yazici=(List)yazdirilan.get(2);
+	yazici.display();
 	System.out.println();
 	System.out.println();
 	
 	System.out.println("KAT 4");
-	queue_yazdir((Queue<araba>)yazdýrýlan.get(3));
+	queue_yazdir((Queue<araba>)yazdirilan.get(3));
 	System.out.println();
 	System.out.println("KAT 5");
-	stack_yazdir((Stack<araba>)yazdýrýlan.get(4));
+	stack_yazdir((Stack<araba>)yazdirilan.get(4));
 	System.out.println();
 	System.out.println("KAT 6");
-	List yazýcý1=(List)yazdýrýlan.get(5);
-	yazýcý1.display();
+	List yazici1=(List)yazdirilan.get(5);
+	yazici1.display();
 	System.out.println();
 	System.out.println();
 	
 	System.out.println("KAT 7");
-	queue_yazdir((Queue<araba>)yazdýrýlan.get(6));
+	queue_yazdir((Queue<araba>)yazdirilan.get(6));
 	System.out.println();
 	System.out.println("KAT 8");
-	stack_yazdir((Stack<araba>)yazdýrýlan.get(7));
+	stack_yazdir((Stack<araba>)yazdirilan.get(7));
 	System.out.println();
 	System.out.println("KAT 9");
-	List yazýcý2=(List)yazdýrýlan.get(8);
-	yazýcý2.display();
+	List yazici2=(List)yazdirilan.get(8);
+	yazici2.display();
 	System.out.println();
 	System.out.println();
 }
