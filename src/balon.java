@@ -5,7 +5,7 @@ public class balon {
 		
 		List linked =  new List();
 		
-		String[] renk = {"KÄ±rmÄ±zÄ±","YeÅŸil","Mavi","SarÄ±","Mor","Turuncu","Pembe","Gri","Siyah","Beyaz"};
+		String[] renk = {"Kırmızı","Yesil","Mavi","Sarı","Mor","Turuncu","Pembe","Gri","Siyah","Beyaz"};
 		
 		
 		linked.ekle(renk);

@@ -1,5 +1,3 @@
-import java.sql.Ref;
-
 
 public class List {
 	public araba ilk;
@@ -39,11 +37,11 @@ public class List {
 	public void display()
 	{
 		araba temp=ilk;
-		while(temp.sonrakiAl() != ilk)
+		do
 		{
 			temp.yazdir();
 			temp=temp.sonrakiAl();
-		}
+		}while(temp != ilk);
 	}
 	
 	public void dolas(int n)
