@@ -1,6 +1,6 @@
 import java.io.*;
 import java.util.*;
-
+import java.util.Scanner;
 
 public class balon {
 
@@ -41,6 +41,8 @@ public class balon {
 		katlar.add(kat8);
 		katlar.add(kat9);
 		
+		int secim=menu();
+		
 		//Katlar yazdırılıyor.
 		System.out.println("KAT 1");
         queue_yazdir(kat1);
@@ -72,6 +74,24 @@ public class balon {
 		System.out.println();
 		System.out.println("KAT 9");
 		kat9.display();
+
+	}
+	
+	public static int menu(){
+		int secim;
+		
+		do{
+			System.out.println("1) Tum katlar�n listesi");
+			System.out.println("2) Otopark problemi");
+			System.out.println("3) 3 saniyede n adet ortalama otopark probleminin cozumu");
+			System.out.println("4) Cikis:");
+			System.out.println();
+			System.out.println("Seciminizi giriniz:");
+			Scanner in = new Scanner(System.in); 
+			secim=in.nextInt();
+		}while(secim!=4);
+		
+		return secim;
 
 	}
 	
