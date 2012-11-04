@@ -35,7 +35,7 @@ public class List {
 		}
 	}
 	
-	public void dolaþ(int n)
+	public void dolas(int n)
 	{
 		int count=1;
 		while(ilk.next!=ilk && count!=n)
@@ -45,7 +45,7 @@ public class List {
 		}
 	}
 	
-	public void çýkart()
+	public void cikart()
 	{
 		if(!bosmu())
 		{
