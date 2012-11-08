@@ -1,8 +1,8 @@
-import java.io.*;
 import java.util.*;
 
 public class balon {
 
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		
 
@@ -26,7 +26,8 @@ public class balon {
 				
 				case 2:
 				{
-					
+					cikar(n, otopark, true);
+					break;
 				}
 				
 				case 3:
@@ -38,6 +39,7 @@ public class balon {
 		}while(secim!=4);
 	}
 	
+	@SuppressWarnings("resource")
 	public static int menu(){
 		int secim;
 		
@@ -132,8 +134,10 @@ public static ArrayList<Object> ekleme(){
 
 }
 
-	public static void cikar(int n,ArrayList<Object> otopark){
+	@SuppressWarnings("unchecked")
+	public static void cikar(int n,ArrayList<Object> otopark,Boolean print){
 		int dolukat=9,kat;
+		String cikan = null;
 		Random rastgele = new Random();
 		Queue<araba> queue;
 		Stack<araba> stack;
@@ -141,27 +145,63 @@ public static ArrayList<Object> ekleme(){
 		while(dolukat!=0)
 		{
 			kat=rastgele.nextInt(9);
-			
+
 			switch (kat%3) {
 			case 0:
 				queue = (Queue<araba>)otopark.get(kat);
-				queue.remove();
+				if(queue != null){
+
+					if (queue.isEmpty())
+						dolukat -=1;
+					else {cikan = queue.peek().renk;
+					queue.poll();
+					if(print)
+						cikani_yaz(cikan, otopark);
+					}
+				}
 				break;
 			case 1:
 				stack = (Stack<araba>)otopark.get(kat);
-				stack.pop();
+				if(stack!= null){
+
+					if (stack.isEmpty())
+						dolukat -=1;
+					else {					
+						cikan = stack.peek().renk;
+						if(print)
+							cikani_yaz(cikan, otopark);
+						stack.pop();
+					}
+
+				}
+				break;
 			case 2:
 				liste = (List)otopark.get(kat);
-				liste.dolas(n);
-				liste.cikart();
-				// TODO Boş kontrol
-				break;
+				if(liste!= null){
+					if(!liste.bosmu()){
+						liste.dolas(n);
+						cikan = liste.cikart();
+						if(liste.bosmu()){
+							dolukat -= 1;
+						}
+						if(print)
+							cikani_yaz(cikan, otopark);
+					}
+					break;
+				}
 			}
-			
 		}
 
 	}
- public static void katlari_yazdir(ArrayList<Object> yazdirilan){
+	
+	public static void cikani_yaz(String cikan,ArrayList<Object> otopark){
+		if (cikan !=null){
+			System.out.println(cikan);
+			katlari_yazdir(otopark);
+		}
+	}
+ @SuppressWarnings("unchecked")
+public static void katlari_yazdir(ArrayList<Object> yazdirilan){
 	
 	
     System.out.println("KAT 1");
@@ -207,6 +247,7 @@ public static void islem_zaman(){
 	start = System.currentTimeMillis();
 	// TODO ekleme metodunu çağır
 	// TODO çıkarma metodunu çağır
+	// TODO döngü içerisine koy
 	stop = System.currentTimeMillis();
 	
 	islemZamani = stop - start;

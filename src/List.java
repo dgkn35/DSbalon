@@ -42,6 +42,7 @@ public class List {
 	public void display()
 	{
 		araba temp=ilk;
+		if(temp != null)
 		do
 		{
 			temp.yazdir();
@@ -59,18 +60,24 @@ public class List {
 		}
 	}
 	
-	public void cikart()
+	public String cikart()
 	{
+		String cikar = null;
 		if(!bosmu())
 		{
-			if(temp.next!=ilk)
+			if(temp.next==ilk)
 				ilk=ilk.next;
 			
-			temp.yazdir();
+			cikar = temp.next.renk;
+			if (temp.next == temp)
+				ilk =null;
 			temp.next=temp.next.next;
+			
 		}
-		if (temp == ilk)
-			ilk =null;
+		
+		
+		
+		return cikar;
 	}
 	
 }
