@@ -11,13 +11,14 @@ public class balon {
 		System.out.println("Balon problemi icin gerekli n degerini giriniz:");
 		int n= in.nextInt();
 
+		ArrayList<Object> otopark = new ArrayList<Object>();
 		
 		do{
 			secim=menu();
 			switch (secim) {
 				case 1:
 				{
-					ArrayList<Object> otopark = new ArrayList<Object>();
+					
 					otopark=ekleme();
 					katlari_yazdir(otopark);
 					break;
@@ -126,47 +127,41 @@ public static ArrayList<Object> ekleme(){
 	katlar.add(kat7);
 	katlar.add(kat8);
 	katlar.add(kat9);
-	
-	
-	
-	//Katlar yazdırılıyor.
-	//System.out.println("KAT 1");
-    //queue_yazdir(kat1);
-	//System.out.println();
-	//System.out.println("KAT 2");
-	//stack_yazdir(kat2);
-	//System.out.println();
-	//System.out.println("KAT 3");
-	//kat3.display();
-	//System.out.println();
-	//System.out.println();
-	
-	//System.out.println("KAT 4");
-	//queue_yazdir(kat4);
-	//System.out.println();
-	//System.out.println("KAT 5");
-	//stack_yazdir(kat5);
-	//System.out.println();
-	//System.out.println("KAT 6");
-	//kat6.display();
-	//System.out.println();
-	//System.out.println();
-	
-	//System.out.println("KAT 7");
-	//queue_yazdir(kat7);
-	//System.out.println();
-	//System.out.println("KAT 8");
-	//stack_yazdir(kat8);
-	//System.out.println();
-	//System.out.println("KAT 9");
-	//kat9.display();
 
 	return katlar;
 
 }
 
+	public static void cikar(int n,ArrayList<Object> otopark){
+		int dolukat=9,kat;
+		Random rastgele = new Random();
+		Queue<araba> queue;
+		Stack<araba> stack;
+		List liste;
+		while(dolukat!=0)
+		{
+			kat=rastgele.nextInt(9);
+			
+			switch (kat%3) {
+			case 0:
+				queue = (Queue<araba>)otopark.get(kat);
+				queue.remove();
+				break;
+			case 1:
+				stack = (Stack<araba>)otopark.get(kat);
+				stack.pop();
+			case 2:
+				liste = (List)otopark.get(kat);
+				liste.dolas(n);
+				liste.cikart();
+				// TODO Boş kontrol
+				break;
+			}
+			
+		}
 
-public static void katlari_yazdir(ArrayList<Object> yazdirilan){
+	}
+ public static void katlari_yazdir(ArrayList<Object> yazdirilan){
 	
 	
     System.out.println("KAT 1");

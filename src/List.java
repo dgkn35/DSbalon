@@ -34,6 +34,7 @@ public class List {
 		{
 			current=current.sonrakiAl();
 		}
+		this.temp = current;//son eleman global
 		current.next = ilk;
 		
 	}
@@ -68,6 +69,8 @@ public class List {
 			temp.yazdir();
 			temp.next=temp.next.next;
 		}
+		if (temp == ilk)
+			ilk =null;
 	}
 	
 }
