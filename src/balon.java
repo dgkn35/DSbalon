@@ -276,7 +276,8 @@ public static void islem_zaman(int n){
 	//	System.out.println("Islem 1 ms'den kısa sürede tamamlandı. " +
 	//			"Kac islem yapılabilecegi hesaplanamıyor.");
 	//else
-	System.out.println("3 sn'de yapilabilecek islem sayisi :" + 3000/(float)(islemZamani/sayac));
+	float gecici = (float)islemZamani/sayac;
+	System.out.println("3 sn'de yapilabilecek islem sayisi :" + 3000/gecici);
 	}
 }
 
