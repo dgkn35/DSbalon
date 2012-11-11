@@ -136,15 +136,19 @@ public static ArrayList<Object> ekleme(){
 
 	@SuppressWarnings("unchecked")
 	public static void cikar(int n,ArrayList<Object> otopark,Boolean print){
-		int dolukat=9,kat;
+		int kat;
+		int[] dolu = {1,1,1,1,1,1,1,1,1};
+		Boolean flag = false;
 		String cikan = null;
 		Random rastgele = new Random();
 		Queue<araba> queue;
 		Stack<araba> stack;
 		List liste;
-		while(dolukat!=0)
+		
+		while(!flag)
 		{
 			kat=rastgele.nextInt(9);
+			
 
 			switch (kat%3) {
 			case 0:
@@ -152,7 +156,7 @@ public static ArrayList<Object> ekleme(){
 				if(queue != null){
 
 					if (queue.isEmpty())
-						dolukat -=1;
+						dolu[kat]=0;
 					else {cikan = queue.peek().renk;
 					queue.poll();
 					if(print)
@@ -165,12 +169,13 @@ public static ArrayList<Object> ekleme(){
 				if(stack!= null){
 
 					if (stack.isEmpty())
-						dolukat -=1;
+						dolu[kat]=0;
 					else {					
 						cikan = stack.peek().renk;
+						stack.pop();
 						if(print)
 							cikani_yaz(cikan, otopark);
-						stack.pop();
+						
 					}
 
 				}
@@ -182,7 +187,7 @@ public static ArrayList<Object> ekleme(){
 						liste.dolas(n);
 						cikan = liste.cikart();
 						if(liste.bosmu()){
-							dolukat -= 1;
+							dolu[kat]=0;
 						}
 						if(print)
 							cikani_yaz(cikan, otopark);
@@ -190,6 +195,14 @@ public static ArrayList<Object> ekleme(){
 					break;
 				}
 			}
+			int top=0;
+			for(int i = 0; i < dolu.length;i++)
+			{
+				top += dolu[i];
+			}
+			if (top == 0)
+				flag = true;
+			
 		}
 
 	}
