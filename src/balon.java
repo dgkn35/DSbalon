@@ -32,7 +32,8 @@ public class balon {
 				
 				case 3:
 				{
-					
+					islem_zaman(n);
+					break;
 				}
 			}
 			
@@ -254,23 +255,28 @@ public static void katlari_yazdir(ArrayList<Object> yazdirilan){
 	System.out.println();
 }
 
-public static void islem_zaman(){
+public static void islem_zaman(int n){
 	
+	ArrayList<Object> otopark = new ArrayList<Object>();
+	long sayac=0;
 	long start,stop, islemZamani;
 	start = System.currentTimeMillis();
-	// TODO ekleme metodunu çağır
-	// TODO çıkarma metodunu çağır
-	// TODO döngü içerisine koy
-	stop = System.currentTimeMillis();
+	do{
+		otopark = ekleme();
+		cikar(n, otopark, false);
+		sayac++;
+		stop = System.currentTimeMillis();
+		islemZamani = stop - start;
+	}while(islemZamani<=1);
 	
-	islemZamani = stop - start;
 	System.out.println(islemZamani);
+	System.out.println(sayac);
 	
-	if(islemZamani == 0)
-		System.out.println("Islem 1 ms'den kısa sürede tamamlandı. " +
-				"Kac islem yapılabilecegi hesaplanamıyor.");
-	else
-		System.out.println("3 sn'de yapilabilecek islem sayisi :" + 3000/islemZamani);
+	//if(islemZamani == 0)
+	//	System.out.println("Islem 1 ms'den kısa sürede tamamlandı. " +
+	//			"Kac islem yapılabilecegi hesaplanamıyor.");
+	//else
+	System.out.println("3 sn'de yapilabilecek islem sayisi :" + 3000/(float)(islemZamani/sayac));
 	}
 }
 
